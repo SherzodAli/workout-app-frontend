@@ -1,0 +1,18 @@
+@font-face {
+	font-family: 'Sofia Sans';
+	src: url('../fonts/sofia-sans/SofiaSans-Regular.ttf');
+}
+
+$primary: #b53471;
+$primary-dark: darken($primary, 18%);
+$primary-dark-x2: darken($primary, 30%);
+
+$white: #f1e8e8;
+$black: darken($primary, 40%);
+
+$box-shadow-primary: 0 4px 4px rgba($primary, 0.25);
+$box-shadow-dark: 0 3px 6px rgba(0, 0, 0, 0.16);
+
+$default-font: 'Sofia Sans', sans-serif;
+
+$mobile: 480px;

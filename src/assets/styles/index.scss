@@ -1,0 +1,57 @@
+@import './variables';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+
+	&::before,
+	&::after {
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+*::-webkit-input-placeholder,
+*::-moz-placeholder,
+*::-ms-input-placeholder {
+	color: #c0c0c0;
+	opacity: 1;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	min-width: 320px;
+	position: relative;
+	line-height: 1.65;
+	font-size: 18px;
+	font-family: $default-font;
+	background-color: $black;
+	color: #fff;
+	overflow-x: hidden;
+}
+
+img {
+	min-width: 100%;
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+#root {
+	height: 100%;
+}

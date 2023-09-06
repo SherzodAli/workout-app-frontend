@@ -1,0 +1,59 @@
+@import '@styles/variables';
+@import '@styles/animations';
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	> button {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+}
+
+.menuWrapper {
+	position: relative;
+
+	button {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+}
+
+.menu {
+	display: none;
+	min-width: 116px;
+	padding: 10px 12px;
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	background-color: #fff;
+	font-size: 14px;
+	box-shadow: $box-shadow-dark;
+	animation: fadeOpacity 0.4s;
+
+	&.open {
+		display: block;
+	}
+
+	> ul {
+		list-style: none;
+	}
+
+	a {
+		color: #000;
+		text-decoration: none;
+		transition: color 0.2s ease;
+
+		&:hover,
+		&:active {
+			color: $primary;
+			margin: 4px 0;
+		}
+	}
+}
