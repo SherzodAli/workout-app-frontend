@@ -12,6 +12,11 @@
 		outline: none;
 		cursor: pointer;
 	}
+
+	svg {
+		color: #ffffff;
+		font-size: 30px;
+	}
 }
 
 .menuWrapper {
@@ -34,6 +39,7 @@
 	right: 0;
 	background-color: #fff;
 	font-size: 14px;
+	border-radius: 10px 0 10px 10px;
 	box-shadow: $box-shadow-dark;
 	animation: fadeOpacity 0.4s;
 

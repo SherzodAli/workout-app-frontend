@@ -1,20 +1,18 @@
 import styles from './Header.module.scss'
 
 import cn from 'clsx'
-import { useState } from 'react'
-import { CgMenuRight } from 'react-icons/cg'
-import { FiArrowLeft } from 'react-icons/fi'
-import { IoClose } from 'react-icons/io5'
 
+import { IconArrowLeft, IconClose, IconMenu } from '@components/ui/Icons'
 import { useAuth } from '@hooks/auth'
+import { useOnClickOutside } from '@hooks/dom'
 
-export function Header({ backLink }) {
+export default function Header({ backLink }) {
 	const { isAuth } = useAuth()
 
 	return (
 		<header className={styles.header}>
-			<button onClick={() => {}}>
-				<FiArrowLeft color='white' />
+			<button>
+				<IconArrowLeft />
 			</button>
 			<Menu />
 		</header>
@@ -22,17 +20,17 @@ export function Header({ backLink }) {
 }
 
 function Menu() {
-	const [isOpen, setIsOpen] = useState(false)
+	const menu = useOnClickOutside()
 
 	function logoutHandler() {}
 
 	return (
-		<div className={styles.menuWrapper}>
-			<button onClick={() => setIsOpen(!isOpen)}>
-				{isOpen ? <IoClose color='white' /> : <CgMenuRight color='white' />}
+		<div className={styles.menuWrapper} ref={menu.ref}>
+			<button onClick={menu.toggle}>
+				{menu.isOpen ? <IconClose /> : <IconMenu />}
 			</button>
 
-			<nav className={cn(styles.menu, { [styles.open]: isOpen })}>
+			<nav className={cn(styles.menu, { [styles.open]: menu.isOpen })}>
 				<ul>
 					<li>Workouts: /workouts</li>
 					<li>Create new: /new-workout</li>
