@@ -13,7 +13,7 @@ export default function Header({ backLink = '/' }) {
 	const { isAuth } = useAuth()
 
 	const isMainPage = location.pathname === '/'
-	const navigateTo = isMainPage ? (isAuth ? '/auth' : '/profile') : backLink
+	const navigateTo = isMainPage ? (isAuth ? '/profile' : '/auth') : backLink
 	const icon = isMainPage ? <IconUser /> : <IconArrowLeft />
 
 	return (

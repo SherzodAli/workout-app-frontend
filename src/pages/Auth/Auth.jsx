@@ -6,6 +6,8 @@ import { useForm } from 'react-hook-form'
 import Layout from '@components/Layout'
 import { Button, Field, Loader } from '@components/ui'
 import image from '@images/auth-bg.png'
+import AuthService from '@services/auth.service'
+import { useMutation } from '@tanstack/react-query'
 
 const EMAIL_REGEX = /\S+@\S+\.\S+/
 const LOGIN = 'LOGIN'
@@ -15,31 +17,36 @@ export default function Auth() {
 	const {
 		register: registerForm,
 		handleSubmit,
-		formState: { errors }
+		formState: { errors },
+		reset
 	} = useForm()
-	const [isLoading, setIsLoading] = useState(false)
 	const [authType, setAuthType] = useState(LOGIN)
+	const login = useMutation(
+		['login'],
+		({ email, password }) => AuthService.login(email, password),
+		{ onSuccess }
+	)
+	const register = useMutation(
+		['register'],
+		({ email, password }) => AuthService.register(email, password),
+		{ onSuccess }
+	)
+
+	async function onSuccess(data) {
+		reset()
+		console.log(data)
+	}
 
 	async function onSubmit(data) {
-		setIsLoading(true)
-		if (authType === LOGIN) await login(data)
-		if (authType === REGISTER) await register(data)
-		setIsLoading(false)
-	}
-
-	async function login(data) {
-		console.log('login', data)
-	}
-
-	async function register(data) {
-		console.log('register', data)
+		if (authType === LOGIN) await login.mutate(data)
+		if (authType === REGISTER) await register.mutate(data)
 	}
 
 	return (
 		<>
 			<Layout title='Sign in' backgroundImage={image}></Layout>
 			<div className='wrapper-inner-page'>
-				{isLoading && <Loader />}
+				{(login.isLoading || register.isLoading) && <Loader />}
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field
 						error={errors?.email?.message}

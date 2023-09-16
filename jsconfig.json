@@ -5,7 +5,10 @@
 			"@components/*": ["./src/components/*"],
 			"@styles/*": ["./src/static/styles/*"],
 			"@hooks/*": ["./src/hooks/*"],
-			"@images/*": ["./src/static/images/*"]
+			"@images/*": ["./src/static/images/*"],
+			"@utils/*": ["./src/utils/*"],
+			"@services/*": ["./src/services/*"],
+			"@src/*": ["./src/*"]
 		}
 	},
 	"exclude": ["node_modules"]
