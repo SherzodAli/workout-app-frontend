@@ -1,3 +1,3 @@
 export function useAuth() {
-	return { isAuth: false }
+	return { isAuth: true }
 }

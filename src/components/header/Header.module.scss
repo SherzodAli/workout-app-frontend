@@ -38,7 +38,7 @@
 	top: calc(100% + 8px);
 	right: 0;
 	background-color: #fff;
-	font-size: 14px;
+	font-size: 16px;
 	border-radius: 10px 0 10px 10px;
 	box-shadow: $box-shadow-dark;
 	animation: fadeOpacity 0.4s;
@@ -49,6 +49,10 @@
 
 	> ul {
 		list-style: none;
+	}
+
+	button {
+		font-size: 16px;
 	}
 
 	a {

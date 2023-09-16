@@ -18,9 +18,9 @@ export default function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
+				<Route path='/' element={<Home />} />
 				<Route path='/auth' element={<Auth />} />
 				<Route element={<ProtectedRoute />}>
-					<Route path='/' element={<Home />} />
 					<Route path='/profile' element={<Profile />} />
 					<Route path='/workouts' element={<WorkoutList />} />
 					<Route path='/workouts/:id' element={<WorkoutDetail />} />
